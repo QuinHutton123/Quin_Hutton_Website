@@ -108,7 +108,7 @@
         <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="dm-cap-2">
           <img src="media/mm/damper/model-inside.png" alt="Inside the damper model, subsystem layout" loading="lazy" />
         </button>
-        <figcaption id="dm-cap-2"><b>Inside it</b>The bump and rebound paths built separately from the same parts: an opening area, the pressure drop across it, and the force that follows. Block labels are left unreadable at this size on purpose.</figcaption>
+        <figcaption id="dm-cap-2"><b>Inside it</b>The bump and rebound paths built separately from the same parts: an opening area, the pressure drop across it, and the force that follows. The export is deliberately low resolution, so block labels are not legible in it.</figcaption>
       </figure>
       <figure class="plate">
         <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="dm-cap-3">
@@ -128,8 +128,9 @@
   <section class="section shell">
     <h2 class="display-heading" style="text-align: left;">What I worked on</h2>
     <p class="models-intro" style="margin-top: 1.2rem;">
-      Trials, launch builds and the tooling around them. Numbers, curves and tolerances belong to
-      Multimatic and are not here; what follows is the method and what it changed.
+      Trials, launch builds and the tooling around them. Programme names, numbers, curves and
+      tolerances belong to Multimatic and are not here; what follows is the method and what it
+      changed.
     </p>
     <div class="entries" style="margin-top: clamp(2rem, 4vw, 3.5rem);">
       <article class="entry">
@@ -141,7 +142,7 @@
             is the work that decides whether a damper design is actually manufacturable at rate.
           </p>
           <div class="entry__facts">
-            <span>Programs <b>T1-2LD, T1-2HD</b></span>
+            <span>Scope <b>Two full-size truck damper programs</b></span>
             <span>Output <b>R@R, process validation, SAT sign-off</b></span>
           </div>
         </div>
@@ -151,44 +152,44 @@
         <h3 class="entry__title">Striker cap heat trial</h3>
         <div>
           <p class="prose prose--muted">
-            Caps were breaking on the line and nobody could say why. I measured striker cap heat
-            dissipation through a thermal soak, then tracked how often caps broke and at what
-            temperature, which tied the failures to a thermal cause rather than to handling.
+            I characterised striker cap heat dissipation through a thermal soak, correlating
+            component temperature against outcome down the line. The result separated a thermal
+            mechanism from a handling one and gave the line a measurable threshold to work to.
           </p>
           <div class="entry__facts">
-            <span>Programs <b>31-2, T1-1LD</b></span>
+            <span>Scope <b>Production damper assembly</b></span>
             <span>Tools <b>Thermal soak rig, Excel</b></span>
           </div>
         </div>
       </article>
 
       <article class="entry">
-        <h3 class="entry__title">Honed rebound port tubes</h3>
+        <h3 class="entry__title">Quantifying a machining change</h3>
         <div>
           <p class="prose prose--muted">
-            Honing the rebound port tube was expected to help, but nobody had put a number on it.
-            I plotted the dyno results as histograms against the population from before the
-            change, so bump and rebound could each be judged on the spread rather than on a
-            single sample.
+            A machining change to an internal component was expected to improve consistency, but
+            nobody had put a number on it. I plotted the dyno results as histograms against the
+            population from before the change, so bump and rebound could each be judged on the
+            spread rather than on a single sample.
           </p>
           <div class="entry__facts">
-            <span>Program <b>T1-1HD</b></span>
+            <span>Scope <b>Production damper program</b></span>
             <span>Tools <b>Python, dyno data</b></span>
           </div>
         </div>
       </article>
 
       <article class="entry">
-        <h3 class="entry__title">Piston band root cause</h3>
+        <h3 class="entry__title">Root cause in rebound measurement</h3>
         <div>
           <p class="prose prose--muted">
-            Found the root cause behind a cluster of rebound PSD failures: bleed hole alignment
-            through the piston band. No fix was available inside the current design, so instead I
-            moved the dyno software onto the second peak rather than the first, which is the one
-            that represents what the part actually does.
+            Traced an inconsistency in rebound results to an internal geometry effect rather than
+            to the test itself. The design constraint could not be changed inside the current
+            program, so I established which feature of the measured trace actually represents the
+            part's behaviour, and the measurement was revised to read that feature.
           </p>
           <div class="entry__facts">
-            <span>Program <b>T1-1LD</b></span>
+            <span>Scope <b>Production damper program</b></span>
             <span>Output <b>Revised dyno measurement</b></span>
           </div>
         </div>
@@ -203,7 +204,7 @@
             catching.
           </p>
           <div class="entry__facts">
-            <span>Program <b>T1-2LD</b></span>
+            <span>Scope <b>Production damper program</b></span>
             <span>Output <b>Full stroke against standard PSD</b></span>
           </div>
         </div>
@@ -219,7 +220,7 @@
             issues to Keyence for further improvements.
           </p>
           <div class="entry__facts">
-            <span>Programs <b>T1-1HD, T1-2LD, T1-2HD</b></span>
+            <span>Scope <b>Three production lines</b></span>
             <span>Tools <b>Keyence vision software</b></span>
           </div>
         </div>
@@ -233,7 +234,7 @@
             out of the line, without moving the work onto the stations either side of the gap.
           </p>
           <div class="entry__facts">
-            <span>Program <b>31-2</b></span>
+            <span>Scope <b>One assembly line</b></span>
             <span>Output <b>Revised line layout</b></span>
           </div>
         </div>
@@ -251,7 +252,7 @@
           </p>
           <div class="entry__facts">
             <span>Built in <b>Python (VS Code), Excel VBA</b></span>
-            <span>Covers <b>T1-1HD, T1-2LD, T1-2HD</b></span>
+            <span>Covers <b>Three production programs</b></span>
           </div>
         </div>
       </article>
@@ -261,9 +262,8 @@
   <section class="section shell" id="programs">
     <h2 class="display-heading" style="text-align: left;">Programs</h2>
     <p class="models-intro" style="margin-top: 1.2rem;">
-      The damper programs I worked on, grouped by the customer they ship to. The codes are the
-      ones they go by inside the building; T1-2LD jounce is the jounce control unit rather than a
-      main damper.
+      The damper programs I worked on, grouped by the customer they ship to, named by the
+      production vehicles they ship on. Internal program designations are omitted.
     </p>
 
     <div class="brands">
@@ -276,8 +276,8 @@
             Most of my line time, trials and launch work sat here.
           </p>
           <div class="codes codes--tight">
-            <span>ISV</span><span>T1-1LD</span><span>T1-1HD</span><span>T1-2LD</span>
-            <span>T1-2HD</span><span>T1-2LD jounce</span><span>31-2</span><span>31-XX</span>
+            <span>Full-size pickup · light duty</span><span>Full-size pickup · heavy duty</span>
+            <span>Silverado HD ZR2</span><span>Colorado ZR2</span><span>Jounce control units</span>
           </div>
           <div class="brand__shots">
             <figure class="shot">
