@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Model library | Quin</title>
+<meta name="description" content="Nineteen vehicle dynamics models built in MATLAB and Simulink for a Formula SAE electric car, led by a 9 DOF corner balance model." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231B1B1E'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%237C83C3' stroke-width='2'/%3E%3Ccircle cx='23' cy='22' r='2.6' fill='%23F4F5F8'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="brand.css" />
+<script src="brand.js" defer></script>
+</head>
+<body>
+
+<header class="nav nav--plain" data-nav>
+  <div class="nav__set">
+    <a href="index.html#experience" class="nav__link glow glow--ring">Experience</a>
+    <a href="models.html" class="nav__link glow glow--ring" aria-current="page">Models</a>
+  </div>
+
+
+  <div class="nav__set nav__set--end">
+    <a href="index.html#resume" class="nav__link glow glow--ring">Resume</a>
+    <a href="index.html#contact" class="nav__link glow glow--ring">Contact</a>
+  </div>
+
+  <button class="nav__toggle" data-menu-toggle type="button" aria-expanded="false" aria-label="Open menu">
+    <span></span>
+  </button>
+</header>
+
+<div class="menu">
+  <a href="index.html#experience">Experience</a>
+  <a href="models.html">Models</a>
+  <a href="index.html#resume">Resume</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<main id="top">
+
+  <section class="subhero">
+    <div class="hero__media">
+      <img src="media/fe/vd01/magic-formula-fit.png" alt="Magic Formula 6.1 fit over measured tyre data" />
+    </div>
+    <div class="hero__rules" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="hero__row" style="align-items: flex-end;">
+      <div>
+        <p class="subhero__meta">
+          <span>Built in <b>MATLAB &amp; Simulink</b></span>
+          <span>Models <b>19</b></span>
+          <span>Team <b>MAC Formula Electric</b></span>
+        </p>
+        <h1 class="subhero__word">Model library</h1>
+      </div>
+      <a href="index.html" class="back-link" style="padding-bottom: 0.6rem;">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Home
+      </a>
+    </div>
+  </section>
+
+  <section class="section shell">
+  <details class="model" id="vd-17">
+    <summary class="model__head">
+      <span class="model__dof">9<i> DOF</i></span>
+      <h2 class="model__title">Corner balance model</h2>
+      <span class="badge">Newest, and the most complex</span>
+      <svg class="model__chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </summary>
+    <div class="model__body">
+    <div class="model__id">
+      <span class="model__tools">MATLAB<br />Simulink<br />MF 6.1 tyre<br />26 parameters</span>
+    </div>
+    <div>
+      <p class="model__blurb">Nine degrees of freedom: yaw and sideslip in the plane, heave, roll and pitch of the sprung mass, and the vertical motion of each unsprung corner. Load transfer falls out of the suspension states instead of a steady-state formula, so every tyre sees its own normal load and the Magic Formula returns cornering stiffness at that load, camber and pressure. The two tyres on an axle sum to the axle stiffness that drives the yaw-plane solution, and its lateral acceleration feeds straight back into the load transfer. That loop is the one the simpler models cut.</p>
+      <div class="plates">
+        <figure class="plate plate--full">
+          <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="cap-1">
+            <img src="media/fe/vd17/suspension-dofs.png" alt="The nine degrees of freedom" width="1038" height="667" loading="lazy" />
+          </button>
+          <figcaption id="cap-1"><b>The nine degrees of freedom</b>Sprung-mass heave, roll and pitch at the top; the front and rear unsprung subsystems below. Each returns its own spring and damper force, and each corner carries its own vertical state.</figcaption>
+        </figure>
+        <figure class="plate plate--full">
+          <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="cap-2">
+            <img src="media/fe/vd17/yaw-plane-architecture.png" alt="Whole-model architecture" width="1285" height="751" loading="lazy" />
+          </button>
+          <figcaption id="cap-2"><b>Whole-model architecture</b>Four Magic Formula blocks on the left, one per corner. Their cornering stiffnesses feed the yaw-plane solver on the right, whose lateral acceleration closes the loop back into load transfer.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-3">
+            <img src="media/fe/vd17/cornering-stiffness.png" alt="Axle cornering stiffness, built up per tyre" width="1409" height="787" loading="lazy" />
+          </button>
+          <figcaption id="cap-3"><b>Axle cornering stiffness, built up per tyre</b>Each tyre&#x27;s own normal load, camber and pressure go into its own MF 6.3 block. The two outputs sum to the axle stiffness the bicycle solution actually uses.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-4">
+            <img src="media/fe/vd17/understeer-gradient.png" alt="Understeer gradient through a sine steer" width="1649" height="797" loading="lazy" />
+          </button>
+          <figcaption id="cap-4"><b>Understeer gradient through a sine steer</b>Between -0.028 and -0.038 deg/g across the input. A steady-state model would hand back one number; here the balance moves with load transfer, which is the whole reason for solving the suspension live.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-5">
+            <img src="media/fe/vd17/aero-ride-map.png" alt="Aerodynamic load from a ride map" width="848" height="405" loading="lazy" />
+          </button>
+          <figcaption id="cap-5"><b>Aerodynamic load from a ride map</b>A two-dimensional lookup on body attitude and speed, so downforce tracks the platform as it heaves and pitches rather than sitting at a fixed value.</figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
+  </details>
+  <details class="model" id="vd-01">
+    <summary class="model__head">
+      <span class="model__dof">18<i> channels</i></span>
+      <h2 class="model__title">Tyre model and selection, Magic Formula 6.1</h2>
+      <svg class="model__chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </summary>
+    <div class="model__body">
+    <div class="model__id">
+      <span class="model__tools">MATLAB<br />MagicFormulaTyreTool<br />TTC data</span>
+    </div>
+    <div>
+      <p class="model__blurb">Everything downstream needs a tyre, so this came first. Raw test data is binned by load, pressure and camber, checked for bins too thin to trust, smoothed, then fitted to Magic Formula 6.1 to produce the TIR file the Simulink models call. A weighted matrix then ranks candidates on peak grip, consistency, load sensitivity and thermal behaviour, and where a compound has no test data at all, a Mahalanobis distance through coefficient space finds its nearest measured neighbours.</p>
+      <div class="plates">
+        <figure class="plate plate--full">
+          <button class="plate__frame plate__frame--dark plate__frame--natural" type="button" data-zoom aria-describedby="cap-6">
+            <img src="media/fe/vd01/magic-formula-fit.png" alt="Fitted curves over measured data" width="1914" height="1032" loading="lazy" />
+          </button>
+          <figcaption id="cap-6"><b>Fitted curves over measured data</b>Lateral force against slip angle at four vertical loads. The solid lines are the fit; the speckle behind them is the measurement it was fitted to.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame plate__frame--dark" type="button" data-zoom aria-describedby="cap-7">
+            <img src="media/fe/vd01/fy-vs-slip-angle.png" alt="Querying the finished model" width="1531" height="915" loading="lazy" />
+          </button>
+          <figcaption id="cap-7"><b>Querying the finished model</b>A small tool that loads a TIR file and returns Fy against slip angle at a chosen camber, pressure and load. Here that is 571 N/deg of cornering stiffness at 1000 N.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-8">
+            <img src="media/fe/vd01/mahalanobis-match.png" alt="Finding a tyre with no data" width="2161" height="1209" loading="lazy" />
+          </button>
+          <figcaption id="cap-8"><b>Finding a tyre with no data</b>Peak grip, stiffness and load sensitivity as three axes. The star is a compound with no test file; the dashed lines reach its three closest measured matches, at 31.1, 32.6 and 36.3 per cent distance.</figcaption>
+        </figure>
+        <figure class="plate plate--full">
+          <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="cap-9">
+            <img src="media/fe/vd01/selection-matrix.png" alt="The weighting behind the ranking" width="790" height="664" loading="lazy" />
+          </button>
+          <figcaption id="cap-9"><b>The weighting behind the ranking</b>Seven metrics with the reasoning written next to each. Peak grip takes 25 per cent, consistency and load sensitivity 20 each, and the two thermal terms 12.5 apiece.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-10">
+            <img src="media/fe/vd01/rankings.png" alt="Ranked result" width="762" height="298" loading="lazy" />
+          </button>
+          <figcaption id="cap-10"><b>Ranked result</b>Thirteen candidates scored and sorted. The 16x7.5-10 R20 Hoosier comes out first on a total score of 4.9.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-11">
+            <img src="media/fe/vd01/stiffness-vs-load.png" alt="Cornering stiffness against vertical load" width="1072" height="777" loading="lazy" />
+          </button>
+          <figcaption id="cap-11"><b>Cornering stiffness against vertical load</b>Three inflation pressures. At 50 kPa stiffness peaks near 750 N and falls away; at 97 kPa it is still climbing at 1500 N. This curve is what makes load sensitivity worth 20 per cent above.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame plate__frame--dark" type="button" data-zoom aria-describedby="cap-12">
+            <img src="media/fe/vd01/bin-population.png" alt="Checking the bins before fitting" width="1068" height="646" loading="lazy" />
+          </button>
+          <figcaption id="cap-12"><b>Checking the bins before fitting</b>Data points per load-pressure-camber combination. Red bars fall under the threshold, so those bins are too thin to fit and are excluded rather than trusted.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame plate__frame--dark" type="button" data-zoom aria-describedby="cap-13">
+            <img src="media/fe/vd01/data-smoothing.png" alt="Smoothing, chosen per channel" width="495" height="427" loading="lazy" />
+          </button>
+          <figcaption id="cap-13"><b>Smoothing, chosen per channel</b>Moving average, moving median or Savitzky-Golay with a settable window, because peak-preserving matters on some channels and outlier rejection on others.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame plate__frame--dark" type="button" data-zoom aria-describedby="cap-14">
+            <img src="media/fe/vd01/load-case-selector.png" alt="Load cases to include" width="392" height="528" loading="lazy" />
+          </button>
+          <figcaption id="cap-14"><b>Load cases to include</b>Which vertical loads from the sweep go into a given fit: 210 to 1080 N here, with the zero-load run left out.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame plate__frame--dark" type="button" data-zoom aria-describedby="cap-15">
+            <img src="media/fe/vd01/variable-plotter.png" alt="Raw channel browser" width="399" height="360" loading="lazy" />
+          </button>
+          <figcaption id="cap-15"><b>Raw channel browser</b>Any two channels from a run file plotted against each other, which is how the data gets looked at before any of it is fitted.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-16">
+            <img src="media/fe/vd01/fz-vs-time.png" alt="Vertical load through a run" width="959" height="601" loading="lazy" />
+          </button>
+          <figcaption id="cap-16"><b>Vertical load through a run</b>The load sweep as the rig applied it, read straight off the raw file.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-17">
+            <img src="media/fe/vd01/pressure-vs-time.png" alt="Inflation pressure through a run" width="967" height="611" loading="lazy" />
+          </button>
+          <figcaption id="cap-17"><b>Inflation pressure through a run</b>Checked alongside load, because pressure drift through a run moves the fit if it is not binned out.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-18">
+            <img src="media/fe/vd01/simple-model-blocks.png" alt="The simple tyre model it replaced" width="1286" height="498" loading="lazy" />
+          </button>
+          <figcaption id="cap-18"><b>The simple tyre model it replaced</b>A Pacejka call with a load-sensitive peak: D falls with vertical force through a1 and a2. Enough for early work, and the reason MF 6.1 was worth the effort.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-19">
+            <img src="media/fe/vd01/simple-fit-fy.png" alt="Simple model against its target" width="1653" height="798" loading="lazy" />
+          </button>
+          <figcaption id="cap-19"><b>Simple model against its target</b>Lateral force against slip angle from the simple formula, laid over the curve it was matched to.</figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
+  </details>
+  <details class="model" id="vd-05-06">
+    <summary class="model__head">
+      <span class="model__dof">2<i> DOF</i></span>
+      <h2 class="model__title">Quarter car: ride, damping and contact patch</h2>
+      <svg class="model__chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </summary>
+    <div class="model__body">
+    <div class="model__id">
+      <span class="model__tools">MATLAB<br />Simulink<br />front and rear</span>
+    </div>
+    <div>
+      <p class="model__blurb">One corner, two masses: sprung and unsprung, with the tyre as a spring down to the road. Road input is either a measured profile or a PSD-shaped random surface. Sweeping the damping coefficient traces RMS body acceleration against RMS damper velocity, so comfort and control are read off the same axis and the point where more damping stops buying ride quality is a number rather than an opinion.</p>
+      <div class="plates">
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-20">
+            <img src="media/fe/vd05/plant.png" alt="The two-mass plant" width="1189" height="596" loading="lazy" />
+          </button>
+          <figcaption id="cap-20"><b>The two-mass plant</b>Spring and damper forces on the left, the two acceleration summations in the middle, and the tyre spring returning contact patch force at the bottom.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-21">
+            <img src="media/fe/vd05/sprung-mass-fft.png" alt="Where the body mode sits" width="1062" height="543" loading="lazy" />
+          </button>
+          <figcaption id="cap-21"><b>Where the body mode sits</b>FFT of sprung-mass acceleration. The peak is at 3.42 Hz, which is the number the spring rate was chosen to place.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-22">
+            <img src="media/fe/vd05/rms-sweep.png" alt="Ride against control" width="1057" height="542" loading="lazy" />
+          </button>
+          <figcaption id="cap-22"><b>Ride against control</b>RMS vertical acceleration falls, bottoms out near 1550 Ns/m and climbs again, while RMS damper velocity falls the whole way. The marked optimum is where the first curve turns.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-23">
+            <img src="media/fe/vd05/high-vs-low-damping.png" alt="Both ends of the sweep" width="1054" height="551" loading="lazy" />
+          </button>
+          <figcaption id="cap-23"><b>Both ends of the sweep</b>Low damping gives the bigger first peak and the quicker decay; high damping gives a lower peak that rings on far longer. Neither is free.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-24">
+            <img src="media/fe/vd05/damping-curves.png" alt="The damper curves themselves" width="3071" height="2187" loading="lazy" />
+          </button>
+          <figcaption id="cap-24"><b>The damper curves themselves</b>Force against velocity, bump and rebound, front and rear, for a comfort tune and a contact-patch-force tune. Four settings compared on one axis.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-25">
+            <img src="media/fe/vd05/road-psd.png" alt="The random road input" width="953" height="599" loading="lazy" />
+          </button>
+          <figcaption id="cap-25"><b>The random road input</b>A PSD-shaped displacement input, used where a measured profile would make the result specific to one piece of tarmac.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-26">
+            <img src="media/fe/vd05/body-accel.png" alt="Body acceleration response" width="972" height="618" loading="lazy" />
+          </button>
+          <figcaption id="cap-26"><b>Body acceleration response</b>Sprung-mass acceleration through the run, the channel the RMS sweep integrates.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-27">
+            <img src="media/fe/vd05/plant-outputs.png" alt="Output wiring" width="1187" height="482" loading="lazy" />
+          </button>
+          <figcaption id="cap-27"><b>Output wiring</b>The seven channels the model publishes, including contact patch force, which is what the spring rate study is actually judged on.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-28">
+            <img src="media/fe/vd05/spring-rates.png" alt="Reference: contact patch force against spring rate" width="759" height="404" loading="lazy" />
+          </button>
+          <figcaption id="cap-28"><b>Reference: contact patch force against spring rate</b>Published figure (Fig. 8.48) showing RMS contact patch force rising with spring rate across a road sweep. That is the trend the model&#x27;s own sweep was checked against.</figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
+  </details>
+  <details class="model" id="vd-07">
+    <summary class="model__head">
+      <span class="model__dof">4<i> DOF</i></span>
+      <h2 class="model__title">Pitch and heave</h2>
+      <svg class="model__chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </summary>
+    <div class="model__body">
+    <div class="model__id">
+      <span class="model__tools">MATLAB<br />Simulink</span>
+    </div>
+    <div>
+      <p class="model__blurb">Front and rear corners carried on one body, so heave and pitch are solved together rather than one at a time. The road is a physical track profile: discrete bumps at set distances rather than noise. That makes it easy to see how far the platform has settled before the next event arrives.</p>
+      <div class="plates">
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-29">
+            <img src="media/fe/vd07/plant.png" alt="Four-state plant" width="856" height="692" loading="lazy" />
+          </button>
+          <figcaption id="cap-29"><b>Four-state plant</b>Two unsprung corners under a sprung mass free in heave and pitch, with the geometry that converts the two corner deflections into body attitude.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-30">
+            <img src="media/fe/vd07/track-profile.png" alt="The road as laid out" width="965" height="622" loading="lazy" />
+          </button>
+          <figcaption id="cap-30"><b>The road as laid out</b>Bump heights of 50 to 150 mm at 10, 50, 100, 150 and 200 m, so each disturbance is isolated and the recovery between them is visible.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-31">
+            <img src="media/fe/vd07/pitch-angle.png" alt="Pitch response" width="961" height="600" loading="lazy" />
+          </button>
+          <figcaption id="cap-31"><b>Pitch response</b>One packet per bump. The 150 mm bump at 100 m takes the body to 0.23 rad and needs roughly a second to settle.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-32">
+            <img src="media/fe/vd07/heave.png" alt="Heave response" width="949" height="621" loading="lazy" />
+          </button>
+          <figcaption id="cap-32"><b>Heave response</b>The same events read as vertical body movement, which is the half the driver feels through the seat rather than the steering.</figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
+  </details>
+  <details class="model" id="vd-09-10">
+    <summary class="model__head">
+      <span class="model__dof">4<i> DOF</i></span>
+      <h2 class="model__title">Roll, and where the load transfer goes</h2>
+      <svg class="model__chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </summary>
+    <div class="model__body">
+    <div class="model__id">
+      <span class="model__tools">MATLAB<br />Simulink<br />ARB in the loop</span>
+    </div>
+    <div>
+      <p class="model__blurb">The roll pair of the same structure: a sprung mass in roll over two unsprung corners, with the anti-roll bar included rather than folded into an equivalent spring rate. The corner equation of motion splits load transfer three ways: what goes through the springs and bars, what goes through the roll centre and the links, and what the unsprung mass puts straight into the tyre. That is the split the calculator below was written to check.</p>
+      <div class="plates">
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-33">
+            <img src="media/fe/vd09/plant.png" alt="Roll plant" width="986" height="723" loading="lazy" />
+          </button>
+          <figcaption id="cap-33"><b>Roll plant</b>Sprung mass in roll above, the two unsprung corners below, and the anti-roll bar force entering as its own term.</figcaption>
+        </figure>
+        <figure class="plate plate--full">
+          <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="cap-34">
+            <img src="media/fe/vd09/unsprung-corner-eom.png" alt="The corner equation of motion" width="1620" height="646" loading="lazy" />
+          </button>
+          <figcaption id="cap-34"><b>The corner equation of motion</b>Tyre force in, spring, damper and weight out, with the sprung and unsprung lateral terms entering through the roll centre height and the track. The elastic, geometric and unsprung split, written as blocks.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-35">
+            <img src="media/fe/vd09/roll-angle.png" alt="Roll angle to a step input" width="1618" height="800" loading="lazy" />
+          </button>
+          <figcaption id="cap-35"><b>Roll angle to a step input</b>A step at three seconds, a brief overshoot the other way, then settled at 6.1 mrad and holding.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-36">
+            <img src="media/fe/vd09/unsprung-displacement.png" alt="Unsprung corner displacement" width="1615" height="792" loading="lazy" />
+          </button>
+          <figcaption id="cap-36"><b>Unsprung corner displacement</b>What the wheel does while the body rolls, which is where the tyre load change actually comes from.</figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
+  </details>
+  <details class="model" id="vd-04">
+    <summary class="model__head">
+      <span class="model__dof">2<i> DOF</i></span>
+      <h2 class="model__title">Bicycle model</h2>
+      <svg class="model__chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </summary>
+    <div class="model__body">
+    <div class="model__id">
+      <span class="model__tools">MATLAB<br />Simulink<br />15 parameters</span>
+    </div>
+    <div>
+      <p class="model__blurb">Two states, yaw rate and sideslip, and the smallest model that will tell you whether the car understeers. Cornering stiffness is read against vertical load rather than fixed, so the balance still moves as the car loads up. This is the model the corner balance model grew out of, and the one its answers get sanity-checked against.</p>
+      <div class="plates">
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-37">
+            <img src="media/fe/vd04/plant.png" alt="Two-state plant" width="1480" height="631" loading="lazy" />
+          </button>
+          <figcaption id="cap-37"><b>Two-state plant</b>Front and rear slip angles, cornering stiffness lookups, and the yaw and lateral equations solved together.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-38">
+            <img src="media/fe/vd04/plant-v2.png" alt="Second revision" width="1460" height="556" loading="lazy" />
+          </button>
+          <figcaption id="cap-38"><b>Second revision</b>The same model after the tyre call was swapped for a load-sensitive lookup rather than a constant.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-39">
+            <img src="media/fe/vd04/understeer-map.png" alt="Reference: steered angle against speed" width="559" height="395" loading="lazy" />
+          </button>
+          <figcaption id="cap-39"><b>Reference: steered angle against speed</b>The standard chart: understeer gradients from +1.0 to -1.0 deg/g about the neutral-steer line, with critical speed where the negative gradient runs to zero. The model&#x27;s output is read against this.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-40">
+            <img src="media/fe/vd04/stiffness-vs-load.png" alt="Cornering stiffness against load" width="837" height="620" loading="lazy" />
+          </button>
+          <figcaption id="cap-40"><b>Cornering stiffness against load</b>The lookup the model uses, so the front and rear stiffnesses separate as weight shifts rather than staying where they started.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame plate__frame--dark" type="button" data-zoom aria-describedby="cap-41">
+            <img src="media/fe/vd04/yaw-rate-sweep.png" alt="Yaw rate response, parameter swept" width="1128" height="840" loading="lazy" />
+          </button>
+          <figcaption id="cap-41"><b>Yaw rate response, parameter swept</b>Twenty runs from 105 to 200. The steady-state yaw rate is unchanged at 22 deg/s; what moves is how quickly the car gets there.</figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
+  </details>
+  <details class="model" id="vd-02">
+    <summary class="model__head">
+      <span class="model__dof">3<i> DOF</i></span>
+      <h2 class="model__title">Braking</h2>
+      <svg class="model__chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </summary>
+    <div class="model__body">
+    <div class="model__id">
+      <span class="model__tools">MATLAB<br />Simulink<br />12 parameters</span>
+    </div>
+    <div>
+      <p class="model__blurb">Longitudinal braking with wheel rotation at each axle. Pedal force runs through master cylinder area, brake bias, clamp force and rotor radius to a torque at each wheel, so bias is a setting you change and immediately see in the load split. The run here reaches 140 km/h, coasts, and brakes hard at three seconds.</p>
+      <div class="plates">
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-42">
+            <img src="media/fe/vd02/plant.png" alt="Braking plant" width="1578" height="538" loading="lazy" />
+          </button>
+          <figcaption id="cap-42"><b>Braking plant</b>Longitudinal equation, wheel rotation at both axles, and the load transfer term that feeds the tyre forces.</figcaption>
+        </figure>
+        <figure class="plate plate--full">
+          <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="cap-43">
+            <img src="media/fe/vd02/brake-system.png" alt="Pedal to wheel torque" width="1547" height="386" loading="lazy" />
+          </button>
+          <figcaption id="cap-43"><b>Pedal to wheel torque</b>Pedal position, maximum pedal force, bias split, master cylinder area, clamp force, then rotor radius. Each one is a real number rather than a single gain.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-44">
+            <img src="media/fe/vd02/equations-of-motion.png" alt="Equations of motion" width="1605" height="686" loading="lazy" />
+          </button>
+          <figcaption id="cap-44"><b>Equations of motion</b>The longitudinal and rotational states laid out as built.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-45">
+            <img src="media/fe/vd02/ideal-brake-distribution.png" alt="The I-curve" width="545" height="277" loading="lazy" />
+          </button>
+          <figcaption id="cap-45"><b>The I-curve</b>Ideal front against rear brake force at three speeds, with the fixed 0.725 bias line through it. Where the straight line sits above the curve, the front locks first.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-46">
+            <img src="media/fe/vd02/plot-6.png" alt="Velocity" width="581" height="398" loading="lazy" />
+          </button>
+          <figcaption id="cap-46"><b>Velocity</b>140 km/h down to a stop. Braking starts at three seconds from 104.7 km/h and the car is stationary at 5.88 s.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-47">
+            <img src="media/fe/vd02/plot-5.png" alt="Stopping distance" width="563" height="378" loading="lazy" />
+          </button>
+          <figcaption id="cap-47"><b>Stopping distance</b>101.6 m covered before the brakes come on, 138.3 m by the time it stops, so 36.7 m of braking.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-48">
+            <img src="media/fe/vd02/plot-7.png" alt="Deceleration" width="601" height="406" loading="lazy" />
+          </button>
+          <figcaption id="cap-48"><b>Deceleration</b>A peak of -17.4 m/s² the instant the pedal goes down, easing to about -8.5 as speed and downforce fall away.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-49">
+            <img src="media/fe/vd02/plot-1.png" alt="Front normal load" width="561" height="367" loading="lazy" />
+          </button>
+          <figcaption id="cap-49"><b>Front normal load</b>2750 N at the moment of application, against roughly 1990 N coasting. That is the load the front tyre model is being asked about.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-50">
+            <img src="media/fe/vd02/plot-3.png" alt="Rear normal load" width="556" height="343" loading="lazy" />
+          </button>
+          <figcaption id="cap-50"><b>Rear normal load</b>The other side of the same transfer: 1890 N down to 1108 N, which is how little there is left to brake with at the back.</figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
+  </details>
+  <details class="model" id="vd-03">
+    <summary class="model__head">
+      <span class="model__dof">2<i> DOF</i></span>
+      <h2 class="model__title">Acceleration</h2>
+      <svg class="model__chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </summary>
+    <div class="model__body">
+    <div class="model__id">
+      <span class="model__tools">MATLAB<br />Simulink<br />motor map</span>
+    </div>
+    <div>
+      <p class="model__blurb">The straight-line run. A two-dimensional motor map is looked up on RPM and throttle, scaled by maximum motor torque and geared to the wheel, then held against rear slip ratio and longitudinal load transfer. It publishes the three channels that matter for gearing: acceleration, velocity and distance. Slip ratio, motor RPM and vertical force come out alongside them.</p>
+      <div class="plates">
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-51">
+            <img src="media/fe/vd03/subsystem.png" alt="Model interface" width="1149" height="696" loading="lazy" />
+          </button>
+          <figcaption id="cap-51"><b>Model interface</b>Initial velocity and throttle position in; acceleration, velocity, distance, rear slip ratio, motor RPM, gear and vertical force out.</figcaption>
+        </figure>
+        <figure class="plate plate--full">
+          <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="cap-52">
+            <img src="media/fe/vd03/motor-map.png" alt="Motor map lookup" width="1460" height="450" loading="lazy" />
+          </button>
+          <figcaption id="cap-52"><b>Motor map lookup</b>Gear ratio and wheel speed to RPM, RPM and throttle into the two-dimensional map, normalised torque scaled by the motor&#x27;s peak.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-53">
+            <img src="media/fe/vd03/plant.png" alt="Full plant" width="1760" height="765" loading="lazy" />
+          </button>
+          <figcaption id="cap-53"><b>Full plant</b>The traction and load transfer side of the model, downstream of the motor map.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-54">
+            <img src="media/fe/vd03/long-accel.png" alt="Longitudinal acceleration" width="952" height="605" loading="lazy" />
+          </button>
+          <figcaption id="cap-54"><b>Longitudinal acceleration</b>What the tyre will actually take, rather than what the motor would give.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-55">
+            <img src="media/fe/vd03/velocity.png" alt="Velocity" width="936" height="609" loading="lazy" />
+          </button>
+          <figcaption id="cap-55"><b>Velocity</b>The speed trace the gear ratio is chosen against.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-56">
+            <img src="media/fe/vd03/distance.png" alt="Distance covered" width="961" height="604" loading="lazy" />
+          </button>
+          <figcaption id="cap-56"><b>Distance covered</b>Distance against time, so the event can be read straight off the trace.</figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
+  </details>
+  <details class="model" id="tool">
+    <summary class="model__head">
+      <span class="model__dof">3<i> mechanisms</i></span>
+      <h2 class="model__title">Lateral load transfer calculator</h2>
+      <svg class="model__chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </summary>
+    <div class="model__body">
+    <div class="model__id">
+      <span class="model__tools">Excel<br />SI throughout<br />Milliken §18.4</span>
+    </div>
+    <div>
+      <p class="model__blurb">The Milliken neutral-roll-axis method, re-expressed in SI and laid out so every input is visible. Mass, CG height, track, roll stiffness and roll centre heights go in; out comes the load transfer split by mechanism, the roll gradient, the front-to-rear distribution, and an inside-wheel lift check. It seeds the Simulink models, and gives a hand calculation to check them against. The moment balance line at the bottom is there to catch the small-angle assumption drifting.</p>
+      <div class="specs">
+        <div><span>Total mass</span><span>290 kg</span></div>
+        <div><span>Wheelbase</span><span>1.530 m</span></div>
+        <div><span>CG height</span><span>0.300 m</span></div>
+        <div><span>Track, front / rear</span><span>1.220 / 1.180 m</span></div>
+        <div><span>Roll stiffness, front / rear</span><span>12,000 / 18,000 N·m/rad</span></div>
+        <div><span>Load transfer distribution</span><span>44.5 % front</span></div>
+        <div><span>Roll gradient</span><span>1.28 deg/g</span></div>
+      </div>
+      <div class="plates">
+        <figure class="plate plate--full">
+          <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="cap-57">
+            <img src="media/fe/llt/inputs.png" alt="Inputs" width="1619" height="736" loading="lazy" />
+          </button>
+          <figcaption id="cap-57"><b>Inputs</b>290 kg at 15 m/s², a 1.530 m wheelbase and a 0.300 m CG, with 12,000 N·m/rad of front roll stiffness against 18,000 at the rear.</figcaption>
+        </figure>
+        <figure class="plate plate--full">
+          <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="cap-58">
+            <img src="media/fe/llt/outputs.png" alt="Outputs" width="859" height="679" loading="lazy" />
+          </button>
+          <figcaption id="cap-58"><b>Outputs</b>44.5 per cent of lateral load transfer at the front, a 1.28 deg/g roll gradient, 1.96 deg of body roll, and the moment balance closing to 99.94 per cent.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-59">
+            <img src="media/fe/llt/by-mechanism.png" alt="Split by mechanism, as a share" width="1591" height="1192" loading="lazy" />
+          </button>
+          <figcaption id="cap-59"><b>Split by mechanism, as a share</b>The front puts 26.4 per cent of its transfer through geometry; the rear only 4.8. That difference is the roll centre heights, and it is a balance adjustment that costs nothing in spring rate.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-60">
+            <img src="media/fe/llt/amount.png" alt="Split by mechanism, in newtons" width="1591" height="1192" loading="lazy" />
+          </button>
+          <figcaption id="cap-60"><b>Split by mechanism, in newtons</b>The same result in force: 485 N at the front against 604 N at the rear, 1089 N in total.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame" type="button" data-zoom aria-describedby="cap-61">
+            <img src="media/fe/llt/milliken-reference.png" alt="The method it implements" width="493" height="664" loading="lazy" />
+          </button>
+          <figcaption id="cap-61"><b>The method it implements</b>Milliken and Milliken, Race Car Vehicle Dynamics, section 18.4. Every equation in the sheet is taken from that derivation.</figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
+  </details>
+  </section>
+
+  <section class="section shell" id="model-map">
+    <h2 class="display-heading">The map it was all planned from</h2>
+    <p class="models-intro" style="margin: 1.4rem auto 0; text-align: center; max-width: 60ch;">
+      Nineteen models down the top, twenty-seven measurements down the side, and a cross in every
+      cell where one needs the other. It was written before the models were, so the test plan knew
+      what to go and measure and nothing ended up built on a guess.
+    </p>
+    <div class="plates" style="margin-top: clamp(2rem, 4vw, 3.5rem);">
+        <figure class="plate plate--full">
+          <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="cap-62">
+            <img src="media/fe/map/model-map.png" alt="Vehicle dynamics model map" width="1356" height="744" loading="lazy" />
+          </button>
+          <figcaption id="cap-62"><b>Vehicle dynamics model map</b>All nineteen models against the parameters each one needs. The full 14 DOF car wants 35 of them; the 9 DOF corner balance model wants 26. Tyre vertical stiffness is the most-wanted measurement on the sheet, needed by fourteen models.</figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section class="section shell" id="course">
+    <h2 class="display-heading" style="text-align: left;">Where the theory came from</h2>
+    <p class="models-intro" style="margin-top: 1.2rem;">
+      A vehicle dynamics course worked through alongside the build. The derivations behind the
+      Simulink blocks above start here: slip angles, the braking balance, the pitch equations.
+    </p>
+    <div class="plates" style="margin-top: clamp(1.8rem, 3.5vw, 2.8rem);">
+        <figure class="plate">
+          <button class="plate__frame plate__frame--dark" type="button" data-zoom aria-describedby="cap-63">
+            <img src="media/course/bicycle-model.png" alt="Lateral dynamics: the bicycle model" width="1902" height="912" loading="lazy" />
+          </button>
+          <figcaption id="cap-63"><b>Lateral dynamics: the bicycle model</b>Front and rear slip angles under the small-angle approximation, and the vehicle slip angle at the CG. These are the three expressions the bicycle model is built out of.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame plate__frame--dark" type="button" data-zoom aria-describedby="cap-64">
+            <img src="media/course/braking.png" alt="Braking" width="1910" height="912" loading="lazy" />
+          </button>
+          <figcaption id="cap-64"><b>Braking</b>The longitudinal module behind the braking model.</figcaption>
+        </figure>
+        <figure class="plate">
+          <button class="plate__frame plate__frame--dark" type="button" data-zoom aria-describedby="cap-65">
+            <img src="media/course/pitch-3dof.png" alt="Pitch, three degrees of freedom" width="1905" height="917" loading="lazy" />
+          </button>
+          <figcaption id="cap-65"><b>Pitch, three degrees of freedom</b>The pitch derivation that the pitch and heave model extends to four.</figcaption>
+        </figure>
+    </div>
+  </section>
+
+  <section class="section shell contact">
+    <div class="contact__grid">
+      <div>
+        <p class="eyebrow">Get in touch</p>
+        <p class="contact__line">Happy to walk through any of these.</p>
+      </div>
+      <div class="contact__links">
+        <a href="mailto:quinhutton@gmail.com" class="u">quinhutton@gmail.com</a>
+        <a href="formula-electric.html" class="u">MAC Formula Electric</a>
+        <a href="resume.pdf" download class="u">Resume (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p>&copy; 2026 Quin Hutton.</p>
+  <a href="#top" class="u">Back to top</a>
+</footer>
+
+</body>
+</html>

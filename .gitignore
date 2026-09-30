@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Local dev output
+temporary screenshots/
+
+# Raw / unoptimised source assets (curated copies live in media/)
+Car Pics/
+Website Photos/
+Damper/
+Company Logos Plus proche/
+_archive/
+Website_Test2.png
+orbitx28.png
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini

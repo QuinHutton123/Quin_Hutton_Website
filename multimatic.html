@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Multimatic | Quin</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231B1B1E'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%237C83C3' stroke-width='2'/%3E%3Ccircle cx='23' cy='22' r='2.6' fill='%23F4F5F8'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="brand.css" />
+<script src="brand.js" defer></script>
+</head>
+<body>
+
+<header class="nav nav--plain" data-nav>
+  <div class="nav__set">
+    <a href="index.html#experience" class="nav__link glow glow--ring">Experience</a>
+    <a href="models.html" class="nav__link glow glow--ring">Models</a>
+  </div>
+
+
+  <div class="nav__set nav__set--end">
+    <a href="index.html#resume" class="nav__link glow glow--ring">Resume</a>
+    <a href="index.html#contact" class="nav__link glow glow--ring">Contact</a>
+  </div>
+
+  <button class="nav__toggle" data-menu-toggle type="button" aria-expanded="false" aria-label="Open menu">
+    <span></span>
+  </button>
+</header>
+
+<div class="menu">
+  <a href="index.html#experience">Experience</a>
+  <a href="index.html#resume">Resume</a>
+  <a href="models.html">Models</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<div class="watermark" aria-hidden="true" style="
+  --src: url('brand_assets/logos/multimatic-card.png');
+  --iw: 1200; --ih: 630; --cx: 476; --cy: 161; --cw: 247; --ch: 238;
+  --w: 44vw; --wm-opacity: 0.055;"></div>
+
+<main id="top">
+
+  <section class="subhero">
+    <div class="hero__media">
+      <img src="media/mm/zr2-bison-suspension.jpg" alt="Jounce shock and DSSV damper fitted to a truck rear axle" />
+    </div>
+    <div class="hero__rules" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="hero__row" style="align-items: flex-end;">
+      <div>
+        <span class="subhero__plate" data-logo>
+          <img src="brand_assets/logos/multimatic.png" alt="Multimatic" />
+          <span hidden class="nav__word" style="color: var(--obsidian);">Multimatic</span>
+        </span>
+        <p class="subhero__meta">
+          <span>Role <b>Process engineer</b></span>
+          <span>Dates <b>Sep 2025 – Sep 2026</b></span>
+          <span>Group <b>Multimatic Ride Dynamics</b></span>
+        </p>
+        <h1 class="subhero__word">Multimatic</h1>
+      </div>
+      <a href="index.html#experience" class="back-link" style="padding-bottom: 0.6rem;">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        All experience
+      </a>
+    </div>
+  </section>
+
+  <section class="section shell statement">
+    <div></div>
+    <div class="statement__body">
+      <p class="eyebrow">Production dampers</p>
+      <p class="statement__text" data-scroll-text>Strength through technology, through the DSSV dampers.</p>
+    </div>
+  </section>
+
+
+  <section class="section shell" id="damper-model">
+    <h2 class="display-heading" style="text-align: left;">Damper model</h2>
+    <p class="models-intro" style="margin-top: 1.2rem;">
+      A damper model I built in MATLAB and Simulink, and the tool that feeds it. The port window is
+      drawn by hand and turned into an area curve; the model then takes one velocity input and
+      returns the flow through that area, the force it produces, and the body and rod states. It is the piece of work here I am most pleased with, because it turns a
+      damper from a curve you measure into a mechanism you can reason about. The scales are
+      Multimatic's, so the plots below keep their shape and lose their values.
+    </p>
+
+    <div class="plates" style="margin-top: clamp(1.8rem, 3.5vw, 2.8rem);">
+      <figure class="plate plate--full plate--held">
+        <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="dm-cap-0">
+          <img src="media/mm/damper/port-window.png" alt="Port window drawing tool, with the resulting open area curve" loading="lazy" />
+        </button>
+        <figcaption id="dm-cap-0"><b>Where the curve starts: the port window</b>A tool I wrote to draw the window itself. Half the shape is drawn against a centreline and mirrored, and the area it uncovers is integrated as the spool travels, which produces the curve on the right. That curve is the input the damper model reads. Dimensions and coordinates withheld.</figcaption>
+      </figure>
+      <figure class="plate">
+        <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="dm-cap-1">
+          <img src="media/mm/damper/model-top-level.png" alt="Top level of the damper model in Simulink" loading="lazy" />
+        </button>
+        <figcaption id="dm-cap-1"><b>Top level</b>Damper velocity in, and the outputs the rest of the work reads: force, the body and rod positions and their derivatives, and the opening area on each side.</figcaption>
+      </figure>
+      <figure class="plate">
+        <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="dm-cap-2">
+          <img src="media/mm/damper/model-inside.png" alt="Inside the damper model, subsystem layout" loading="lazy" />
+        </button>
+        <figcaption id="dm-cap-2"><b>Inside it</b>The bump and rebound paths built separately from the same parts: an opening area, the pressure drop across it, and the force that follows. Block labels are left unreadable at this size on purpose.</figcaption>
+      </figure>
+      <figure class="plate">
+        <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="dm-cap-3">
+          <img src="media/mm/damper/open-area.png" alt="Opening area against damper velocity" loading="lazy" />
+        </button>
+        <figcaption id="dm-cap-3"><b>Opening area against velocity</b>The geometric half of the answer: how far the spool has opened at a given velocity. Axis values withheld.</figcaption>
+      </figure>
+      <figure class="plate">
+        <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="dm-cap-4">
+          <img src="media/mm/damper/force-velocity.png" alt="Damper force against velocity" loading="lazy" />
+        </button>
+        <figcaption id="dm-cap-4"><b>Force against velocity</b>What the model produces once the flow is solved through that area. The shape is the model's answer; the scale is not mine to publish.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section shell">
+    <h2 class="display-heading" style="text-align: left;">What I worked on</h2>
+    <p class="models-intro" style="margin-top: 1.2rem;">
+      Trials, launch builds and the tooling around them. Numbers, curves and tolerances belong to
+      Multimatic and are not here; what follows is the method and what it changed.
+    </p>
+    <div class="entries" style="margin-top: clamp(2rem, 4vw, 3.5rem);">
+      <article class="entry">
+        <h3 class="entry__title">Program launch builds</h3>
+        <div>
+          <p class="prose prose--muted">
+            Run-at-rate builds to prove the line could hold takt at volume, process validation
+            against the control plan, and site acceptance testing on the new line equipment. This
+            is the work that decides whether a damper design is actually manufacturable at rate.
+          </p>
+          <div class="entry__facts">
+            <span>Programs <b>T1-2LD, T1-2HD</b></span>
+            <span>Output <b>R@R, process validation, SAT sign-off</b></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <h3 class="entry__title">Striker cap heat trial</h3>
+        <div>
+          <p class="prose prose--muted">
+            Caps were breaking on the line and nobody could say why. I measured striker cap heat
+            dissipation through a thermal soak, then tracked how often caps broke and at what
+            temperature, which tied the failures to a thermal cause rather than to handling.
+          </p>
+          <div class="entry__facts">
+            <span>Programs <b>31-2, T1-1LD</b></span>
+            <span>Tools <b>Thermal soak rig, Excel</b></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <h3 class="entry__title">Honed rebound port tubes</h3>
+        <div>
+          <p class="prose prose--muted">
+            Honing the rebound port tube was expected to help, but nobody had put a number on it.
+            I plotted the dyno results as histograms against the population from before the
+            change, so bump and rebound could each be judged on the spread rather than on a
+            single sample.
+          </p>
+          <div class="entry__facts">
+            <span>Program <b>T1-1HD</b></span>
+            <span>Tools <b>Python, dyno data</b></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <h3 class="entry__title">Piston band root cause</h3>
+        <div>
+          <p class="prose prose--muted">
+            Found the root cause behind a cluster of rebound PSD failures: bleed hole alignment
+            through the piston band. No fix was available inside the current design, so instead I
+            moved the dyno software onto the second peak rather than the first, which is the one
+            that represents what the part actually does.
+          </p>
+          <div class="entry__facts">
+            <span>Program <b>T1-1LD</b></span>
+            <span>Output <b>Revised dyno measurement</b></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <h3 class="entry__title">Full stroke testing</h3>
+        <div>
+          <p class="prose prose--muted">
+            Ran parts through full stroke on the dyno and compared the force-displacement
+            behaviour against the standard PSD test, to see what the shorter test was not
+            catching.
+          </p>
+          <div class="entry__facts">
+            <span>Program <b>T1-2LD</b></span>
+            <span>Output <b>Full stroke against standard PSD</b></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <h3 class="entry__title">End-of-line vision testing</h3>
+        <div>
+          <p class="prose prose--muted">
+            Worked through measurement problems on the Keyence vision systems at end of line:
+            improved repeatability, added inspection tooling, and built reference features so the
+            regions of inspection landed in the same place every time. Carried the remaining
+            issues to Keyence for further improvements.
+          </p>
+          <div class="entry__facts">
+            <span>Programs <b>T1-1HD, T1-2LD, T1-2HD</b></span>
+            <span>Tools <b>Keyence vision software</b></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <h3 class="entry__title">Operator reduction</h3>
+        <div>
+          <p class="prose prose--muted">
+            Integrated build-operating-system ideas into the line layout and took one operator
+            out of the line, without moving the work onto the stations either side of the gap.
+          </p>
+          <div class="entry__facts">
+            <span>Program <b>31-2</b></span>
+            <span>Output <b>Revised line layout</b></span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry">
+        <h3 class="entry__title">Automation and tooling</h3>
+        <div>
+          <p class="prose prose--muted">
+            Three tools, each aimed at a job people were doing by hand. A damper file search that
+            cuts the time to find a barcode in the database, splits the results by file type and
+            writes a log of where each one came from. A converter that rolls maximum torque across
+            many exports into one summary workbook. And drag-select added to the dyno plotting
+            software, so files no longer have to be added and removed one at a time.
+          </p>
+          <div class="entry__facts">
+            <span>Built in <b>Python (VS Code), Excel VBA</b></span>
+            <span>Covers <b>T1-1HD, T1-2LD, T1-2HD</b></span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section shell" id="programs">
+    <h2 class="display-heading" style="text-align: left;">Programs</h2>
+    <p class="models-intro" style="margin-top: 1.2rem;">
+      The damper programs I worked on, grouped by the customer they ship to. The codes are the
+      ones they go by inside the building; T1-2LD jounce is the jounce control unit rather than a
+      main damper.
+    </p>
+
+    <div class="brands">
+      <article class="brand">
+        <div class="brand__mark"><img src="media/brands/gm.png" alt="General Motors" loading="lazy" /></div>
+        <div class="brand__body">
+          <h3 class="brand__name">General Motors</h3>
+          <p class="prose prose--muted">
+            Truck dampers in volume, across the light and heavy duty variants of the platform.
+            Most of my line time, trials and launch work sat here.
+          </p>
+          <div class="codes codes--tight">
+            <span>ISV</span><span>T1-1LD</span><span>T1-1HD</span><span>T1-2LD</span>
+            <span>T1-2HD</span><span>T1-2LD jounce</span><span>31-2</span><span>31-XX</span>
+          </div>
+          <div class="brand__shots">
+            <figure class="shot">
+              <button class="shot__frame" type="button" data-zoom aria-describedby="gm-cap-0">
+                <img src="media/brands/gm-silverado-zr2.webp" alt="Chevrolet Silverado HD ZR2 running in the desert" loading="lazy" />
+              </button>
+              <figcaption id="gm-cap-0"><b>Silverado HD ZR2</b>The duty cycle the heavy duty units are built for: full size, fully loaded, and off the road.</figcaption>
+            </figure>
+            <figure class="shot">
+              <button class="shot__frame shot__frame--product" type="button" data-zoom aria-describedby="gm-cap-1">
+                <img src="media/mm/colorado-zr2.jpg" alt="Front and rear dampers for the Colorado ZR2" loading="lazy" />
+              </button>
+              <figcaption id="gm-cap-1"><b>Colorado ZR2 units</b>Front and rear dampers as they ship for the truck, with the jounce unit alongside.</figcaption>
+            </figure>
+            <figure class="shot">
+              <button class="shot__frame shot__frame--product" type="button" data-zoom aria-describedby="gm-cap-2">
+                <img src="media/mm/t1xx-dssv.gif" alt="Damper pair for the T1XX truck platform" loading="lazy" />
+              </button>
+              <figcaption id="gm-cap-2"><b>T1XX platform</b>The pair that goes on the full size pickup, where wheel travel and mass are an order away from a race car.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="brand">
+        <div class="brand__mark"><img src="media/brands/porsche.png" alt="Porsche" loading="lazy" /></div>
+        <div class="brand__body">
+          <h3 class="brand__name">Porsche</h3>
+          <p class="prose prose--muted">
+            Cup car dampers: the same spool valve principle as the trucks, built to a race
+            program's tolerances and rebuild cycle rather than a production line's takt.
+          </p>
+          <div class="codes codes--tight">
+            <span>GT2 Cup car</span>
+          </div>
+          <div class="brand__shots">
+            <figure class="shot">
+              <button class="shot__frame" type="button" data-zoom aria-describedby="por-cap-1">
+                <img src="media/brands/porsche-cup.jpg" alt="Porsche Cup car on track" loading="lazy" />
+              </button>
+              <figcaption id="por-cap-1"><b>Cup car on track</b>The environment the damper is tuned for: one driver, one surface, and a rebuild between events.</figcaption>
+            </figure>
+            <figure class="shot">
+              <button class="shot__frame shot__frame--product" type="button" data-zoom aria-describedby="por-cap-2">
+                <img src="media/brands/porsche-dssv.jpg" alt="Cup car damper set" loading="lazy" />
+              </button>
+              <figcaption id="por-cap-2"><b>The damper set</b>Front and rear units with their springs, as they are delivered to the team.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="brand">
+        <div class="brand__mark"><img src="media/brands/ferrari.png" alt="Ferrari" loading="lazy" /></div>
+        <div class="brand__body">
+          <h3 class="brand__name">Ferrari</h3>
+          <p class="prose prose--muted">
+            A single program, the SF90, run alongside the truck work on the low volume side of the floor.
+          </p>
+          <div class="codes codes--tight">
+            <span>F173</span>
+          </div>
+          <div class="brand__shots">
+            <figure class="shot">
+              <button class="shot__frame" type="button" data-zoom aria-describedby="fer-cap-1">
+                <img src="media/brands/ferrari-sf90-xx.jpg" alt="Ferrari SF90 XX Stradale on track" loading="lazy" />
+              </button>
+              <figcaption id="fer-cap-1"><b>SF90 XX Stradale</b>The car the F173 program ships on.</figcaption>
+            </figure>
+            <figure class="shot">
+              <button class="shot__frame shot__frame--product" type="button" data-zoom aria-describedby="fer-cap-2">
+                <img src="media/brands/ferrari-f173-dssv.webp" alt="Ferrari F173 damper set with its cast lower arm" loading="lazy" />
+              </button>
+              <figcaption id="fer-cap-2"><b>The F173 set</b>Front and rear units, with the cast arm the front one mounts into.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="brand">
+        <div class="brand__mark"><img src="media/brands/aston-martin.png" alt="Aston Martin" loading="lazy" /></div>
+        <div class="brand__body">
+          <h3 class="brand__name">Aston Martin</h3>
+          <p class="prose prose--muted">
+            Three generations of the same idea: inboard dampers on the One-77, a pushrod layout
+            with adjustable damping and anti-dive on the Vulcan, and the adaptive spool valve on
+            the Valiant.
+          </p>
+          <div class="codes codes--tight">
+            <span>One-77 · inboard DSSV</span>
+            <span>Vulcan · pushrod, adjustable, anti-dive</span>
+            <span>Valiant · adaptive spool valve (ASV)</span>
+          </div>
+          <div class="brand__shots">
+            <figure class="shot">
+              <button class="shot__frame" type="button" data-zoom aria-describedby="am-cap-1">
+                <img src="media/brands/aston-one-77-silver.jpg" alt="Aston Martin One-77 in silver" loading="lazy" />
+              </button>
+              <figcaption id="am-cap-1"><b>One-77</b>The car that put the dampers inboard, out of the airflow and onto the chassis.</figcaption>
+            </figure>
+            <figure class="shot">
+              <button class="shot__frame" type="button" data-zoom aria-describedby="am-cap-2">
+                <img src="media/brands/aston-one-77-blue.jpg" alt="Aston Martin One-77 on track" loading="lazy" />
+              </button>
+              <figcaption id="am-cap-2"><b>On track</b>Seventy-seven built, and the layout the Vulcan and the Valiant were developed from.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="brand">
+        <div class="brand__mark"><img src="media/brands/chevrolet.png" alt="Chevrolet" loading="lazy" /></div>
+        <div class="brand__body">
+          <h3 class="brand__name">Chevrolet</h3>
+          <p class="prose prose--muted">
+            The Camaro Z/28 was the first high volume production road car to run racing-derived
+            spool valve dampers. The other trims of the same car kept conventional and magnetic
+            units, which makes it a clean comparison.
+          </p>
+          <div class="codes codes--tight">
+            <span>2014–2015 Camaro Z/28</span>
+          </div>
+          <div class="brand__shots">
+            <figure class="shot">
+              <button class="shot__frame" type="button" data-zoom aria-describedby="chv-cap-1">
+                <img src="media/brands/camaro-z28.avif" alt="Chevrolet Camaro Z/28 on track" loading="lazy" />
+              </button>
+              <figcaption id="chv-cap-1"><b>Camaro Z/28</b>A road car developed to a track brief, which is why it could carry a race damper at all.</figcaption>
+            </figure>
+            <figure class="shot">
+              <button class="shot__frame shot__frame--product" type="button" data-zoom aria-describedby="chv-cap-2">
+                <img src="media/mm/1le-cutaway.webp" alt="Camaro front strut, one of the pair sectioned" loading="lazy" />
+              </button>
+              <figcaption id="chv-cap-2"><b>The strut, sectioned</b>The damper inside its spring and top mount, cut open to show how it sits in the car.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="overlay">
+    <div class="overlay__media">
+      <img src="media/mm/plant-floor.png" alt="Damper assembly floor with finished units on pallets" />
+    </div>
+    <div class="overlay__text">
+      <h2 class="kicker">What I took away</h2>
+      <p class="prose">
+        How a damper actually works, and the fluid mechanics underneath it: flow through an
+        orifice, the pressure drop across it, and the force that follows. The spool's opening
+        area is a drawing rather than a guess.
+      </p>
+      <p class="prose">
+        How they get built, too: manufacturing methods, end-of-line testing, and the quality
+        system that catches a bad unit before it ships.
+      </p>
+      <p class="prose">
+        And sensitivity studies on real hardware rather than in a model. Honing the rebound port
+        tubes measurably improved performance.
+      </p>
+      <p class="prose">
+        I enjoyed working here, and the technology is the reason.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p>© 2026 Quin Hutton.</p>
+  <a href="index.html#experience" class="u">Back to experience</a>
+</footer>
+
+</body>
+</html>

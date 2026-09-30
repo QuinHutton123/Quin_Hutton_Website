@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MAC Formula Electric | Quin</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231B1B1E'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%237C83C3' stroke-width='2'/%3E%3Ccircle cx='23' cy='22' r='2.6' fill='%23F4F5F8'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="brand.css" />
+<script src="brand.js" defer></script>
+</head>
+<body>
+
+<header class="nav nav--plain" data-nav>
+  <div class="nav__set">
+    <a href="index.html#experience" class="nav__link glow glow--ring">Experience</a>
+    <a href="models.html" class="nav__link glow glow--ring">Models</a>
+  </div>
+
+
+  <div class="nav__set nav__set--end">
+    <a href="index.html#resume" class="nav__link glow glow--ring">Resume</a>
+    <a href="index.html#contact" class="nav__link glow glow--ring">Contact</a>
+  </div>
+
+  <button class="nav__toggle" data-menu-toggle type="button" aria-expanded="false" aria-label="Open menu">
+    <span></span>
+  </button>
+</header>
+
+<div class="menu">
+  <a href="index.html#experience">Experience</a>
+  <a href="index.html#resume">Resume</a>
+  <a href="models.html">Models</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<div class="watermark" aria-hidden="true" style="
+  --src: url('brand_assets/logos/mac-formula-electric.png');
+  --iw: 267; --ih: 71; --cx: 142; --cy: 0; --cw: 125; --ch: 70;
+  --w: 46vw; --wm-opacity: 0.05;"></div>
+
+<main id="top">
+
+  <section class="subhero">
+    <div class="hero__media hero__media--collage">
+      <img src="media/fe/vd01/magic-formula-fit.png" alt="Magic Formula fit over measured tyre data" />
+      <img src="media/fe/vd17/suspension-dofs.png" alt="Nine degree of freedom suspension model" />
+      <img src="media/fe/vd05/damping-curves.png" alt="Damper force against velocity curves" />
+      <img src="media/fe/vd01/mahalanobis-match.png" alt="Tyre coefficient space with nearest matches" />
+      <img src="media/fe/vd04/yaw-rate-sweep.png" alt="Yaw rate step response swept across a parameter" />
+      <img src="media/fe/vd02/ideal-brake-distribution.png" alt="Ideal brake force distribution curve" />
+      <img src="media/fe/vd01/stiffness-vs-load.png" alt="Cornering stiffness against vertical load" />
+      <img src="media/fe/map/model-map.png" alt="Vehicle dynamics model map" />
+    </div>
+    <div class="hero__rules" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="hero__row" style="align-items: flex-end;">
+      <div>
+        <span class="subhero__plate" data-logo>
+          <img src="brand_assets/logos/mac-formula-electric.png" alt="MAC Formula Electric" />
+          <span hidden class="nav__word" style="color: var(--obsidian);">MAC Formula Electric</span>
+        </span>
+        <p class="subhero__meta">
+          <span>Role <b>Vehicle dynamics lead</b></span>
+          <span>Season <b>Apr 2025 – Apr 2026</b></span>
+          <span>Team <b>120 people</b></span>
+        </p>
+        <h1 class="subhero__word">MAC Formula Electric</h1>
+      </div>
+      <a href="index.html#experience" class="back-link" style="padding-bottom: 0.6rem;">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        All experience
+      </a>
+    </div>
+  </section>
+
+  <section class="section shell">
+    <h2 class="display-heading" style="text-align: left;">The car</h2>
+
+    <div class="shots" style="margin-top: clamp(1.8rem, 3vw, 2.6rem);">
+      <figure class="shot">
+        <button class="shot__frame" type="button" data-zoom aria-describedby="car-cap-1">
+          <img src="media/fe/car/canadian-teams.jpg" alt="Car 101 lined up with the other Canadian teams for the group photo" loading="lazy" />
+        </button>
+        <figcaption id="car-cap-1"><b>Car 101</b>Lined up with the other Canadian teams for the group photo.</figcaption>
+      </figure>
+      <figure class="shot">
+        <button class="shot__frame" type="button" data-zoom aria-describedby="car-cap-2">
+          <img src="media/fe/car/tech-inspection.jpg" alt="Car 101 being pushed to technical inspection with the driver seated" loading="lazy" />
+        </button>
+        <figcaption id="car-cap-2"><b>On the way to tech</b>Being pushed over to technical inspection.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section shell" id="featured">
+    <h2 class="display-heading" style="text-align: left;">Featured work</h2>
+    <p class="models-intro" style="margin-top: 1.2rem;">
+      Choosing the roll centre heights, worked twice so the two answers could be held against
+      each other. Lateral load transfer distribution is taken as Milliken and Milliken define it,
+      through the neutral roll axis: I built that by hand as an <b>Excel calculator</b>, then
+      solved the same question live in a <b>9 DOF Simulink model</b> where load transfer falls out
+      of the suspension states rather than a steady-state formula. The heights I settled on came
+      from where those two agreed, checked against the suspension kinematics in Adams Car.
+    </p>
+
+    <div class="plates">
+      <figure class="plate">
+        <button class="plate__frame plate__frame--natural" type="button" data-zoom aria-describedby="fw-cap-1">
+          <img src="media/fe/llt/inputs.png" alt="Lateral load transfer calculator, input sheet" loading="lazy" />
+        </button>
+        <figcaption id="fw-cap-1"><b>Lateral load transfer calculator</b>Mass, CG height, track, roll stiffness and the roll centre heights go in. Out comes the transfer split by mechanism, the roll gradient, the front-to-rear distribution and an inside-wheel lift check, with a moment balance at the bottom to catch the small-angle assumption drifting.</figcaption>
+      </figure>
+      <figure class="plate">
+        <button class="plate__frame plate__frame--lead" type="button" data-zoom aria-describedby="fw-cap-2">
+          <img src="media/fe/vd17/suspension-dofs.png" alt="The nine suspension degrees of freedom as Simulink subsystems" loading="lazy" />
+        </button>
+        <figcaption id="fw-cap-2"><b>9 DOF corner balance model</b>The same question with the suspension solved as it moves: heave, roll and pitch of the sprung mass and each unsprung corner, so a change in roll centre height is read at every tyre's own normal load instead of at one operating point.</figcaption>
+      </figure>
+      <figure class="plate">
+        <button class="plate__frame" type="button" data-zoom aria-describedby="fw-cap-3">
+          <img src="media/fe/llt/by-mechanism.png" alt="Load transfer contribution by mechanism, front and rear, as a share" loading="lazy" />
+        </button>
+        <figcaption id="fw-cap-3"><b>What the roll centre buys</b>The transfer split into elastic, geometric and unsprung, as a share of each axle. The geometric part is the one the roll centre height sets, and it costs nothing in spring rate: that is the whole reason for choosing the heights deliberately rather than taking what the linkage gives.</figcaption>
+      </figure>
+      <figure class="plate">
+        <button class="plate__frame" type="button" data-zoom aria-describedby="fw-cap-4">
+          <img src="media/fe/adams/front-suspension.png" alt="Adams Car front suspension and steering assembly, viewed from the front" loading="lazy" />
+        </button>
+        <figcaption id="fw-cap-4"><b>Front suspension in Adams Car</b>Both corners and the steering rack, built to the hardpoints the calculations assumed.</figcaption>
+      </figure>
+      <figure class="plate">
+        <button class="plate__frame" type="button" data-zoom aria-describedby="fw-cap-5">
+          <img src="media/fe/adams/rear-corners.png" alt="Adams Car rear suspension corners, viewed from the front" loading="lazy" />
+        </button>
+        <figcaption id="fw-cap-5"><b>Rear corners</b>The linkage the rear roll centre height is measured off as the suspension moves.</figcaption>
+      </figure>
+      <figure class="plate">
+        <button class="plate__frame" type="button" data-zoom aria-describedby="fw-cap-6">
+          <img src="media/fe/adams/full-vehicle.png" alt="Full vehicle assembly in Adams Car, all four corners with steering and the centre of gravity marker" loading="lazy" />
+        </button>
+        <figcaption id="fw-cap-6"><b>Full vehicle</b>The assembly the two roll centre answers were checked against.</figcaption>
+      </figure>
+    </div>
+
+    <div class="resume__actions" style="margin-top: clamp(2.2rem, 4vw, 3.2rem);">
+      <a href="models.html#vd-17" class="doc-link glow">
+        Both models in full
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <section class="section shell">
+    <h2 class="display-heading">Model outputs</h2>
+    <p class="prose prose--muted" style="margin: 1.4rem auto clamp(2rem, 4vw, 3.5rem); max-width: 52ch; text-align: center;">
+      Four of the runs the setup decisions came out of. The rest of the library, every model and every plot, is on its own page.
+    </p>
+    <div class="plates">
+      <figure class="plate">
+        <button class="plate__frame" type="button" data-zoom aria-describedby="fe-cap-1">
+          <img src="media/fe/llt/by-mechanism.png" alt="Lateral load transfer split by mechanism, front and rear" loading="lazy" />
+        </button>
+        <figcaption id="fe-cap-1"><b>Lateral load transfer, by mechanism</b>The front puts 26.4 per cent of its transfer through geometry against the rear&rsquo;s 4.8. That is a balance adjustment which costs nothing in spring rate.</figcaption>
+      </figure>
+      <figure class="plate">
+        <button class="plate__frame" type="button" data-zoom aria-describedby="fe-cap-2">
+          <img src="media/fe/vd05/rms-sweep.png" alt="RMS body acceleration and damper velocity against damping coefficient" loading="lazy" />
+        </button>
+        <figcaption id="fe-cap-2"><b>Damping sweep: ride against control</b>RMS body acceleration bottoms out near 1550 Ns/m. Past that, more damping costs comfort and buys nothing back.</figcaption>
+      </figure>
+      <figure class="plate">
+        <button class="plate__frame plate__frame--dark" type="button" data-zoom aria-describedby="fe-cap-3">
+          <img src="media/fe/vd01/magic-formula-fit.png" alt="Magic Formula 6.1 fit over measured tyre data at four vertical loads" loading="lazy" />
+        </button>
+        <figcaption id="fe-cap-3"><b>Tyre fit against measured data</b>Magic Formula 6.1 over the test data at four vertical loads. This is the TIR file every other model calls.</figcaption>
+      </figure>
+      <figure class="plate">
+        <button class="plate__frame" type="button" data-zoom aria-describedby="fe-cap-4">
+          <img src="media/fe/vd02/ideal-brake-distribution.png" alt="Ideal brake force distribution curve against a fixed bias line" loading="lazy" />
+        </button>
+        <figcaption id="fe-cap-4"><b>Brake bias against the I-curve</b>The fixed 0.725 bias line laid over the ideal distribution at three speeds, which is where the lock-up order is decided.</figcaption>
+      </figure>
+    </div>
+    <div class="resume__actions" style="margin-top: clamp(2.2rem, 4vw, 3.2rem);">
+      <a href="models.html" class="doc-link glow">
+        All 19 models
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M2 8h11M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <p>© 2026 Quin Hutton.</p>
+  <a href="index.html#experience" class="u">Back to experience</a>
+</footer>
+
+</body>
+</html>
